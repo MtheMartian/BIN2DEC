@@ -54,7 +54,7 @@ namespace MyOwn
 
         private void usrInput_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Enter 8 binary digits...");
+            MessageBox.Show("Enter up to 8 binary digits...");
             Textusr.Visible = true;
         }
 
@@ -84,9 +84,18 @@ namespace MyOwn
 
         private void btnGetInfo_Click(object sender, EventArgs e)
         {
+            
             string input = Textusr.Text;
-           // string nDecimal = string.Join("", input); Concatenates the characters together to create a single string
-            MessageBox.Show("Converting to decimal... " + Convert.ToInt32(input, 2));
+            if (input == string.Empty)
+            {
+                MessageBox.Show("Please enter something by clicking on #");
+            }
+            else
+            {
+                // string nDecimal = string.Join("", input); Concatenates the characters together to create a single string
+                MessageBox.Show("Converting to decimal... " + Convert.ToInt32(input, 2));
+            }
+           
         }
 
         private void Textusr_TextChanged_1(object sender, EventArgs e)
@@ -97,7 +106,7 @@ namespace MyOwn
             if (input.Length > maxLength)
             {
                 Textusr.Clear();
-                MessageBox.Show("Only 8 digits");
+                MessageBox.Show("8 digits maximum");
             }
 
             //List<char> chars = new List<char>();
